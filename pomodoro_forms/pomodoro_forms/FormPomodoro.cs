@@ -14,6 +14,7 @@ namespace pomodoro_forms
         private const int DEFAULT_LONG_REST_MINUTES = 10;
         private const int DEFAULT_LONG_REST_SECONDS = 00;
 
+        private bool _paused;
         private PomodoroTimer _activityTimer;
         private PomodoroTimer _restTimer;
         private PomodoroTimer _longRestTimer;
@@ -26,6 +27,14 @@ namespace pomodoro_forms
             _activityTimer = new PomodoroTimer("Activity", txtActivityMinutes, txtActivitySeconds, btnActivityStart, nfyFinished, lblNotValid, "Take a break", DEFAULT_ACTIVITY_MINUTES, DEFAULT_ACTIVITY_SECONDS);
             _restTimer = new PomodoroTimer("Rest", txtRestMinutes, txtRestSeconds, btnRestStart, nfyFinished, lblNotValid, "Back to it", DEFAULT_REST_MINUTES, DEFAULT_REST_SECONDS);
             _longRestTimer = new PomodoroTimer("Long rest", txtLongRestMinutes, txtLongRestSeconds, btnLongRestStart, nfyFinished, lblNotValid, "Back to it", DEFAULT_LONG_REST_MINUTES, DEFAULT_LONG_REST_SECONDS);
+
+            txtDfActivityMinutes.Text = DEFAULT_ACTIVITY_MINUTES.ToTimeString();
+            txtDfActivitySeconds.Text = DEFAULT_ACTIVITY_SECONDS.ToTimeString();
+            txtDfRestMinutes.Text = DEFAULT_REST_MINUTES.ToTimeString();
+            txtDfRestSeconds.Text = DEFAULT_REST_SECONDS.ToTimeString();
+            txtDfLongRestMinutes.Text = DEFAULT_LONG_REST_MINUTES.ToTimeString();
+            txtDfLongRestSeconds.Text = DEFAULT_LONG_REST_SECONDS.ToTimeString();
+            txtDfCycles.Text = DEFAULT_CYCLES.ToString();
 
             txtActivityMinutes.Text = DEFAULT_ACTIVITY_MINUTES.ToTimeString();
             txtActivitySeconds.Text = DEFAULT_ACTIVITY_SECONDS.ToTimeString();
@@ -96,9 +105,9 @@ namespace pomodoro_forms
             otherTimers.ForEach(StopTimer);
         }
 
-        private void MakeInputsReadOnly(PomodoroTimer activeTimer)
+        private void MakeInputsReadOnly()
         {
-            if (activeTimer.Name == "Activity")
+            if (_activeTimer.Name == "Activity")
             {
                 txtActivityMinutes.ReadOnly = true;
                 txtActivitySeconds.ReadOnly = true;
@@ -111,7 +120,7 @@ namespace pomodoro_forms
                 btnRestStart.Enabled = false;
                 btnLongRestStart.Enabled = false;
             }
-            else if (activeTimer.Name == "Rest")
+            else if (_activeTimer.Name == "Rest")
             {
                 txtActivityMinutes.ReadOnly = false;
                 txtActivitySeconds.ReadOnly = false;
@@ -124,7 +133,7 @@ namespace pomodoro_forms
                 btnRestStart.Enabled = true;
                 btnLongRestStart.Enabled = false;
             }
-            else if (activeTimer.Name == "Long rest")
+            else if (_activeTimer.Name == "Long rest")
             {
                 txtActivityMinutes.ReadOnly = false;
                 txtActivitySeconds.ReadOnly = false;
@@ -168,7 +177,7 @@ namespace pomodoro_forms
         private void StartTimer(PomodoroTimer timer)
         {
             _activeTimer = timer.Start();
-            MakeInputsReadOnly(_activeTimer);
+            MakeInputsReadOnly();
         }
 
         private void StopTimer(PomodoroTimer timer)
@@ -245,6 +254,27 @@ namespace pomodoro_forms
             Show();
             this.WindowState = FormWindowState.Normal;
             nfyFinished.Visible = false;
+        }
+
+        private void btnPause_Click(object sender, EventArgs e)
+        {
+            if (_activeTimer == null)
+            {
+                return;
+            }
+
+            if (!_paused)
+            {
+                _activeTimer.Stop();
+                _paused = true;
+                btnPause.Text = "Resume";
+            }
+            else
+            {
+                _activeTimer.Start();
+                _paused = false;
+                btnPause.Text = "Pause";
+            }
         }
     }
 }

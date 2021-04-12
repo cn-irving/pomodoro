@@ -58,3 +58,13 @@ C:\Users\craig.irving\OneDrive\Code\pomodoro_forms\pomodoro_forms\pomodoro_forms
 C:\Users\craig.irving\OneDrive\Code\pomodoro_forms\pomodoro_forms\pomodoro_forms\obj\Debug\pomodoro_forms.csproj.CoreCompileInputs.cache
 C:\Users\craig.irving\OneDrive\Code\pomodoro_forms\pomodoro_forms\pomodoro_forms\obj\Debug\pomodoro_forms.exe
 C:\Users\craig.irving\OneDrive\Code\pomodoro_forms\pomodoro_forms\pomodoro_forms\obj\Debug\pomodoro_forms.pdb
+C:\Users\Craig\source\repos\pomodoro\pomodoro_forms\pomodoro_forms\bin\Debug\pomodoro_forms.exe.config
+C:\Users\Craig\source\repos\pomodoro\pomodoro_forms\pomodoro_forms\bin\Debug\pomodoro_forms.exe
+C:\Users\Craig\source\repos\pomodoro\pomodoro_forms\pomodoro_forms\bin\Debug\pomodoro_forms.pdb
+C:\Users\Craig\source\repos\pomodoro\pomodoro_forms\pomodoro_forms\obj\Debug\pomodoro_forms.csprojAssemblyReference.cache
+C:\Users\Craig\source\repos\pomodoro\pomodoro_forms\pomodoro_forms\obj\Debug\pomodoro_forms.FormPomodoro.resources
+C:\Users\Craig\source\repos\pomodoro\pomodoro_forms\pomodoro_forms\obj\Debug\pomodoro_forms.Properties.Resources.resources
+C:\Users\Craig\source\repos\pomodoro\pomodoro_forms\pomodoro_forms\obj\Debug\pomodoro_forms.csproj.GenerateResource.cache
+C:\Users\Craig\source\repos\pomodoro\pomodoro_forms\pomodoro_forms\obj\Debug\pomodoro_forms.csproj.CoreCompileInputs.cache
+C:\Users\Craig\source\repos\pomodoro\pomodoro_forms\pomodoro_forms\obj\Debug\pomodoro_forms.exe
+C:\Users\Craig\source\repos\pomodoro\pomodoro_forms\pomodoro_forms\obj\Debug\pomodoro_forms.pdb
