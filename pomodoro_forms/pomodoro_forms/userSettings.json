@@ -1,0 +1,9 @@
+{
+	"activityMinutes": "20",
+	"activitySeconds": "0",
+	"restMinutes": "3",
+	"restSeconds": "20",
+	"longRestMinutes": "10",
+	"longRestSeconds": "0",
+	"cycles": "4"
+}

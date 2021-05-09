@@ -1,5 +1,7 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Windows.Forms;
 
@@ -263,14 +265,22 @@ namespace pomodoro_forms
 
         private void btnSet_Click(object sender, EventArgs e)
         {
-            txtActivityMinutes.Text = DEFAULT_ACTIVITY_MINUTES.ToTimeString();
-            txtActivitySeconds.Text = DEFAULT_ACTIVITY_SECONDS.ToTimeString();
-            txtRestSeconds.Text = DEFAULT_REST_SECONDS.ToTimeString();
-            txtRestSeconds.Text = DEFAULT_REST_SECONDS.ToTimeString();
-            txtLongRestMinutes.Text = DEFAULT_LONG_REST_MINUTES.ToTimeString();
-            txtLongRestSeconds.Text = DEFAULT_LONG_REST_SECONDS.ToTimeString();
-            txtCurrentCycle.Text = 1.ToString();
-            txtCycles.Text = DEFAULT_CYCLES.ToString();
+            using (StreamReader r = new StreamReader("..\\..\\userSettings.json"))
+            {
+                var settingsFileContents = r.ReadToEnd();
+                UserSettings settings = JsonConvert.DeserializeObject<UserSettings>(settingsFileContents);
+
+                txtActivityMinutes.Text = settings.activityMinutes.ToTimeString();
+                txtActivitySeconds.Text = settings.activitySeconds.ToTimeString();
+                txtRestMinutes.Text = settings.restMinutes.ToTimeString();
+                txtRestSeconds.Text = settings.restSeconds.ToTimeString();
+                txtLongRestMinutes.Text = settings.longRestMinutes.ToTimeString();
+                txtLongRestSeconds.Text = settings.longRestSeconds.ToTimeString();
+                txtCurrentCycle.Text = 1.ToString();
+                txtCycles.Text = settings.cycles.ToString();
+            }
+
+            tabMain.SelectedTab = tabTimer;
         }
     }
 }

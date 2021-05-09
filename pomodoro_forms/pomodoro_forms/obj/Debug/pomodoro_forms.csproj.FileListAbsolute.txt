@@ -68,3 +68,6 @@ C:\Users\Craig\source\repos\pomodoro\pomodoro_forms\pomodoro_forms\obj\Debug\pom
 C:\Users\Craig\source\repos\pomodoro\pomodoro_forms\pomodoro_forms\obj\Debug\pomodoro_forms.csproj.CoreCompileInputs.cache
 C:\Users\Craig\source\repos\pomodoro\pomodoro_forms\pomodoro_forms\obj\Debug\pomodoro_forms.exe
 C:\Users\Craig\source\repos\pomodoro\pomodoro_forms\pomodoro_forms\obj\Debug\pomodoro_forms.pdb
+C:\Users\Craig\source\repos\pomodoro\pomodoro_forms\pomodoro_forms\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Craig\source\repos\pomodoro\pomodoro_forms\pomodoro_forms\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Craig\source\repos\pomodoro\pomodoro_forms\pomodoro_forms\obj\Debug\pomodoro_forms.csproj.CopyComplete

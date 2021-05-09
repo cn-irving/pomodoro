@@ -55,6 +55,7 @@ namespace pomodoro_forms
             this.lblNotValid = new System.Windows.Forms.Label();
             this.tabMain = new System.Windows.Forms.TabControl();
             this.tabDefaults = new System.Windows.Forms.TabPage();
+            this.btnSet = new System.Windows.Forms.Button();
             this.lblDfLongRest = new System.Windows.Forms.Label();
             this.lblDfLongRestColon = new System.Windows.Forms.Label();
             this.txtDfLongRestSeconds = new System.Windows.Forms.TextBox();
@@ -69,7 +70,6 @@ namespace pomodoro_forms
             this.lblDfActivity = new System.Windows.Forms.Label();
             this.lblDfActivityColon = new System.Windows.Forms.Label();
             this.lblDfRestColon = new System.Windows.Forms.Label();
-            this.btnSet = new System.Windows.Forms.Button();
             this.tabTimer.SuspendLayout();
             this.tabMain.SuspendLayout();
             this.tabDefaults.SuspendLayout();
@@ -357,6 +357,17 @@ namespace pomodoro_forms
             this.tabDefaults.Text = "Defaults";
             this.tabDefaults.UseVisualStyleBackColor = true;
             // 
+            // btnSet
+            // 
+            this.btnSet.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSet.Location = new System.Drawing.Point(248, 49);
+            this.btnSet.Name = "btnSet";
+            this.btnSet.Size = new System.Drawing.Size(107, 187);
+            this.btnSet.TabIndex = 41;
+            this.btnSet.Text = "Set";
+            this.btnSet.UseVisualStyleBackColor = true;
+            this.btnSet.Click += new System.EventHandler(this.btnSet_Click);
+            // 
             // lblDfLongRest
             // 
             this.lblDfLongRest.AutoSize = true;
@@ -496,17 +507,6 @@ namespace pomodoro_forms
             this.lblDfRestColon.Size = new System.Drawing.Size(13, 20);
             this.lblDfRestColon.TabIndex = 29;
             this.lblDfRestColon.Text = ":";
-            // 
-            // btnSet
-            // 
-            this.btnSet.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSet.Location = new System.Drawing.Point(248, 49);
-            this.btnSet.Name = "btnSet";
-            this.btnSet.Size = new System.Drawing.Size(107, 187);
-            this.btnSet.TabIndex = 41;
-            this.btnSet.Text = "Set";
-            this.btnSet.UseVisualStyleBackColor = true;
-            this.btnSet.Click += new System.EventHandler(this.btnSet_Click);
             // 
             // FormPomodoro
             // 
