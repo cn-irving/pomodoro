@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace pomodoro_forms
@@ -14,7 +15,7 @@ namespace pomodoro_forms
         private const int DEFAULT_LONG_REST_MINUTES = 10;
         private const int DEFAULT_LONG_REST_SECONDS = 00;
 
-        private bool _paused;
+        private List<PomodoroTimer> _timers;
         private PomodoroTimer _activityTimer;
         private PomodoroTimer _restTimer;
         private PomodoroTimer _longRestTimer;
@@ -27,6 +28,7 @@ namespace pomodoro_forms
             _activityTimer = new PomodoroTimer("Activity", txtActivityMinutes, txtActivitySeconds, btnActivityStart, nfyFinished, lblNotValid, "Take a break", DEFAULT_ACTIVITY_MINUTES, DEFAULT_ACTIVITY_SECONDS);
             _restTimer = new PomodoroTimer("Rest", txtRestMinutes, txtRestSeconds, btnRestStart, nfyFinished, lblNotValid, "Back to it", DEFAULT_REST_MINUTES, DEFAULT_REST_SECONDS);
             _longRestTimer = new PomodoroTimer("Long rest", txtLongRestMinutes, txtLongRestSeconds, btnLongRestStart, nfyFinished, lblNotValid, "Back to it", DEFAULT_LONG_REST_MINUTES, DEFAULT_LONG_REST_SECONDS);
+            _timers = new List<PomodoroTimer> { _activityTimer, _restTimer, _longRestTimer };
 
             txtDfActivityMinutes.Text = DEFAULT_ACTIVITY_MINUTES.ToTimeString();
             txtDfActivitySeconds.Text = DEFAULT_ACTIVITY_SECONDS.ToTimeString();
@@ -63,7 +65,7 @@ namespace pomodoro_forms
             }
             else
             {
-                StopOtherTimers(_longRestTimer);
+                StopTimers(GetOtherTimers(_activityTimer));
                 StartTimer(_activityTimer);
             }
         }
@@ -76,7 +78,7 @@ namespace pomodoro_forms
             }
             else
             {
-                StopOtherTimers(_longRestTimer);
+                StopTimers(GetOtherTimers(_restTimer));
                 StartTimer(_restTimer);
             }
         }
@@ -89,20 +91,15 @@ namespace pomodoro_forms
             }
             else
             {
-                StopOtherTimers(_longRestTimer);
+                StopTimers(GetOtherTimers(_longRestTimer));
                 txtCurrentCycle.Text = txtCycles.Text;
                 StartTimer(_longRestTimer);
             }
         }
 
-        private void StopOtherTimers(PomodoroTimer timer)
+        private IEnumerable<PomodoroTimer> GetOtherTimers(PomodoroTimer timer)
         {
-            var otherTimers = new List<PomodoroTimer>();
-            if (timer.Name != "Activity") otherTimers.Add(_activityTimer);
-            if (timer.Name != "Rest") otherTimers.Add(_restTimer);
-            if (timer.Name != "Long rest") otherTimers.Add(_longRestTimer);
-
-            otherTimers.ForEach(StopTimer);
+            return _timers.Where(x => x.Name != timer.Name);
         }
 
         private void MakeInputsReadOnly()
@@ -186,6 +183,14 @@ namespace pomodoro_forms
             MakeInputsEditable();
         }
 
+        private void StopTimers(IEnumerable<PomodoroTimer> timers)
+        {
+            foreach(var timer in timers)
+            {
+                StopTimer(timer);
+            }
+        }
+
         private void HideValidation()
         {
             lblNotValid.Hide();
@@ -256,25 +261,16 @@ namespace pomodoro_forms
             nfyFinished.Visible = false;
         }
 
-        private void btnPause_Click(object sender, EventArgs e)
+        private void btnSet_Click(object sender, EventArgs e)
         {
-            if (_activeTimer == null)
-            {
-                return;
-            }
-
-            if (!_paused)
-            {
-                _activeTimer.Stop();
-                _paused = true;
-                btnPause.Text = "Resume";
-            }
-            else
-            {
-                _activeTimer.Start();
-                _paused = false;
-                btnPause.Text = "Pause";
-            }
+            txtActivityMinutes.Text = DEFAULT_ACTIVITY_MINUTES.ToTimeString();
+            txtActivitySeconds.Text = DEFAULT_ACTIVITY_SECONDS.ToTimeString();
+            txtRestSeconds.Text = DEFAULT_REST_SECONDS.ToTimeString();
+            txtRestSeconds.Text = DEFAULT_REST_SECONDS.ToTimeString();
+            txtLongRestMinutes.Text = DEFAULT_LONG_REST_MINUTES.ToTimeString();
+            txtLongRestSeconds.Text = DEFAULT_LONG_REST_SECONDS.ToTimeString();
+            txtCurrentCycle.Text = 1.ToString();
+            txtCycles.Text = DEFAULT_CYCLES.ToString();
         }
     }
 }

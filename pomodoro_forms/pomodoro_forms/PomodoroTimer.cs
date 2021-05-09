@@ -60,7 +60,7 @@ namespace pomodoro_forms
                 _endTime = _startTime + timerSpan;
                 Timer.Start();
 
-                StartButton.Text = "Stop";
+                StartButton.Text = "Pause";
             }
             else
             {

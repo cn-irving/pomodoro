@@ -55,7 +55,6 @@ namespace pomodoro_forms
             this.lblNotValid = new System.Windows.Forms.Label();
             this.tabMain = new System.Windows.Forms.TabControl();
             this.tabDefaults = new System.Windows.Forms.TabPage();
-            this.btnDfLongRestSet = new System.Windows.Forms.Button();
             this.lblDfLongRest = new System.Windows.Forms.Label();
             this.lblDfLongRestColon = new System.Windows.Forms.Label();
             this.txtDfLongRestSeconds = new System.Windows.Forms.TextBox();
@@ -66,13 +65,11 @@ namespace pomodoro_forms
             this.txtDfRestSeconds = new System.Windows.Forms.TextBox();
             this.txtDfRestMinutes = new System.Windows.Forms.TextBox();
             this.lblDfCycles = new System.Windows.Forms.Label();
-            this.btnDfActivitySet = new System.Windows.Forms.Button();
-            this.btnDfRestSet = new System.Windows.Forms.Button();
             this.lblDfRest = new System.Windows.Forms.Label();
             this.lblDfActivity = new System.Windows.Forms.Label();
             this.lblDfActivityColon = new System.Windows.Forms.Label();
             this.lblDfRestColon = new System.Windows.Forms.Label();
-            this.btnPause = new System.Windows.Forms.Button();
+            this.btnSet = new System.Windows.Forms.Button();
             this.tabTimer.SuspendLayout();
             this.tabMain.SuspendLayout();
             this.tabDefaults.SuspendLayout();
@@ -90,7 +87,6 @@ namespace pomodoro_forms
             // 
             // tabTimer
             // 
-            this.tabTimer.Controls.Add(this.btnPause);
             this.tabTimer.Controls.Add(this.btnLongRestStart);
             this.tabTimer.Controls.Add(this.lblLongRest);
             this.tabTimer.Controls.Add(this.label4);
@@ -338,7 +334,7 @@ namespace pomodoro_forms
             // 
             // tabDefaults
             // 
-            this.tabDefaults.Controls.Add(this.btnDfLongRestSet);
+            this.tabDefaults.Controls.Add(this.btnSet);
             this.tabDefaults.Controls.Add(this.lblDfLongRest);
             this.tabDefaults.Controls.Add(this.lblDfLongRestColon);
             this.tabDefaults.Controls.Add(this.txtDfLongRestSeconds);
@@ -349,8 +345,6 @@ namespace pomodoro_forms
             this.tabDefaults.Controls.Add(this.txtDfRestSeconds);
             this.tabDefaults.Controls.Add(this.txtDfRestMinutes);
             this.tabDefaults.Controls.Add(this.lblDfCycles);
-            this.tabDefaults.Controls.Add(this.btnDfActivitySet);
-            this.tabDefaults.Controls.Add(this.btnDfRestSet);
             this.tabDefaults.Controls.Add(this.lblDfRest);
             this.tabDefaults.Controls.Add(this.lblDfActivity);
             this.tabDefaults.Controls.Add(this.lblDfActivityColon);
@@ -362,16 +356,6 @@ namespace pomodoro_forms
             this.tabDefaults.TabIndex = 1;
             this.tabDefaults.Text = "Defaults";
             this.tabDefaults.UseVisualStyleBackColor = true;
-            // 
-            // btnDfLongRestSet
-            // 
-            this.btnDfLongRestSet.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDfLongRestSet.Location = new System.Drawing.Point(240, 148);
-            this.btnDfLongRestSet.Name = "btnDfLongRestSet";
-            this.btnDfLongRestSet.Size = new System.Drawing.Size(107, 35);
-            this.btnDfLongRestSet.TabIndex = 38;
-            this.btnDfLongRestSet.Text = "Set";
-            this.btnDfLongRestSet.UseVisualStyleBackColor = true;
             // 
             // lblDfLongRest
             // 
@@ -473,26 +457,6 @@ namespace pomodoro_forms
             this.lblDfCycles.TabIndex = 35;
             this.lblDfCycles.Text = "Cycles";
             // 
-            // btnDfActivitySet
-            // 
-            this.btnDfActivitySet.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDfActivitySet.Location = new System.Drawing.Point(240, 45);
-            this.btnDfActivitySet.Name = "btnDfActivitySet";
-            this.btnDfActivitySet.Size = new System.Drawing.Size(107, 35);
-            this.btnDfActivitySet.TabIndex = 24;
-            this.btnDfActivitySet.Text = "Set";
-            this.btnDfActivitySet.UseVisualStyleBackColor = true;
-            // 
-            // btnDfRestSet
-            // 
-            this.btnDfRestSet.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDfRestSet.Location = new System.Drawing.Point(240, 107);
-            this.btnDfRestSet.Name = "btnDfRestSet";
-            this.btnDfRestSet.Size = new System.Drawing.Size(107, 35);
-            this.btnDfRestSet.TabIndex = 27;
-            this.btnDfRestSet.Text = "Set";
-            this.btnDfRestSet.UseVisualStyleBackColor = true;
-            // 
             // lblDfRest
             // 
             this.lblDfRest.AutoSize = true;
@@ -533,22 +497,22 @@ namespace pomodoro_forms
             this.lblDfRestColon.TabIndex = 29;
             this.lblDfRestColon.Text = ":";
             // 
-            // btnPause
+            // btnSet
             // 
-            this.btnPause.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPause.Location = new System.Drawing.Point(240, 205);
-            this.btnPause.Name = "btnPause";
-            this.btnPause.Size = new System.Drawing.Size(107, 35);
-            this.btnPause.TabIndex = 22;
-            this.btnPause.Text = "Pause";
-            this.btnPause.UseVisualStyleBackColor = true;
-            this.btnPause.Click += new System.EventHandler(this.btnPause_Click);
+            this.btnSet.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSet.Location = new System.Drawing.Point(248, 49);
+            this.btnSet.Name = "btnSet";
+            this.btnSet.Size = new System.Drawing.Size(107, 187);
+            this.btnSet.TabIndex = 41;
+            this.btnSet.Text = "Set";
+            this.btnSet.UseVisualStyleBackColor = true;
+            this.btnSet.Click += new System.EventHandler(this.btnSet_Click);
             // 
             // FormPomodoro
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(407, 336);
+            this.ClientSize = new System.Drawing.Size(407, 334);
             this.Controls.Add(this.tabMain);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormPomodoro";
@@ -589,7 +553,6 @@ namespace pomodoro_forms
         private System.Windows.Forms.Label lblNotValid;
         private System.Windows.Forms.TabControl tabMain;
         private System.Windows.Forms.TabPage tabDefaults;
-        private System.Windows.Forms.Button btnDfLongRestSet;
         private System.Windows.Forms.Label lblDfLongRest;
         private System.Windows.Forms.Label lblDfLongRestColon;
         private System.Windows.Forms.TextBox txtDfLongRestSeconds;
@@ -600,13 +563,11 @@ namespace pomodoro_forms
         private System.Windows.Forms.TextBox txtDfRestSeconds;
         private System.Windows.Forms.TextBox txtDfRestMinutes;
         private System.Windows.Forms.Label lblDfCycles;
-        private System.Windows.Forms.Button btnDfActivitySet;
-        private System.Windows.Forms.Button btnDfRestSet;
         private System.Windows.Forms.Label lblDfRest;
         private System.Windows.Forms.Label lblDfActivity;
         private System.Windows.Forms.Label lblDfActivityColon;
         private System.Windows.Forms.Label lblDfRestColon;
-        private System.Windows.Forms.Button btnPause;
+        private System.Windows.Forms.Button btnSet;
     }
 }
 
