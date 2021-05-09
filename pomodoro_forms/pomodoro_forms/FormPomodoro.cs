@@ -9,13 +9,15 @@ namespace pomodoro_forms
 {
     public partial class FormPomodoro : Form
     {
-        private const int DEFAULT_ACTIVITY_MINUTES = 20;
-        private const int DEFAULT_ACTIVITY_SECONDS = 00;
-        private const int DEFAULT_REST_MINUTES = 3;
-        private const int DEFAULT_REST_SECONDS = 20;
-        private const int DEFAULT_CYCLES = 4;
-        private const int DEFAULT_LONG_REST_MINUTES = 10;
-        private const int DEFAULT_LONG_REST_SECONDS = 00;
+        private const string USER_SETTINGS = "..\\..\\userSettings.json";
+
+        private readonly int DEFAULT_ACTIVITY_MINUTES;
+        private readonly int DEFAULT_ACTIVITY_SECONDS;
+        private readonly int DEFAULT_REST_MINUTES;
+        private readonly int DEFAULT_REST_SECONDS;
+        private readonly int DEFAULT_LONG_REST_MINUTES;
+        private readonly int DEFAULT_LONG_REST_SECONDS;
+        private readonly int DEFAULT_CYCLES;
 
         private List<PomodoroTimer> _timers;
         private PomodoroTimer _activityTimer;
@@ -26,6 +28,20 @@ namespace pomodoro_forms
         public FormPomodoro()
         {
             InitializeComponent();
+
+            using (StreamReader r = new StreamReader(USER_SETTINGS))
+            {
+                var settingsFileContents = r.ReadToEnd();
+                var settings = JsonConvert.DeserializeObject<UserSettings>(settingsFileContents);
+
+                DEFAULT_ACTIVITY_MINUTES = settings.ActivityMinutes;
+                DEFAULT_ACTIVITY_SECONDS = settings.ActivitySeconds;
+                DEFAULT_REST_MINUTES = settings.RestMinutes;
+                DEFAULT_REST_SECONDS = settings.RestSeconds;
+                DEFAULT_LONG_REST_MINUTES = settings.LongRestMinutes;
+                DEFAULT_LONG_REST_SECONDS = settings.LongRestSeconds;
+                DEFAULT_CYCLES = settings.Cycles;
+            }
 
             _activityTimer = new PomodoroTimer("Activity", txtActivityMinutes, txtActivitySeconds, btnActivityStart, nfyFinished, lblNotValid, "Take a break", DEFAULT_ACTIVITY_MINUTES, DEFAULT_ACTIVITY_SECONDS);
             _restTimer = new PomodoroTimer("Rest", txtRestMinutes, txtRestSeconds, btnRestStart, nfyFinished, lblNotValid, "Back to it", DEFAULT_REST_MINUTES, DEFAULT_REST_SECONDS);
@@ -106,6 +122,8 @@ namespace pomodoro_forms
 
         private void MakeInputsReadOnly()
         {
+            ((Control)tabDefaults).Enabled = false;
+
             if (_activeTimer.Name == "Activity")
             {
                 txtActivityMinutes.ReadOnly = true;
@@ -149,6 +167,8 @@ namespace pomodoro_forms
 
         private void MakeInputsEditable()
         {
+            ((Control)tabDefaults).Enabled = true;
+
             txtActivityMinutes.ReadOnly = false;
             txtActivitySeconds.ReadOnly = false;
 
@@ -187,7 +207,7 @@ namespace pomodoro_forms
 
         private void StopTimers(IEnumerable<PomodoroTimer> timers)
         {
-            foreach(var timer in timers)
+            foreach (var timer in timers)
             {
                 StopTimer(timer);
             }
@@ -265,22 +285,44 @@ namespace pomodoro_forms
 
         private void btnSet_Click(object sender, EventArgs e)
         {
-            using (StreamReader r = new StreamReader("..\\..\\userSettings.json"))
+            if (int.TryParse(txtDfActivityMinutes.Text, out var activityMinutes) && int.TryParse(txtDfActivitySeconds.Text, out var activitySeconds)
+                && int.TryParse(txtDfRestMinutes.Text, out var restMinutes) && int.TryParse(txtDfRestSeconds.Text, out var restSeconds)
+                && int.TryParse(txtDfLongRestMinutes.Text, out var longRestMinutes) && int.TryParse(txtDfLongRestSeconds.Text, out var longRestSeconds)
+                && int.TryParse(txtDfCycles.Text, out var cycles)
+                )
             {
-                var settingsFileContents = r.ReadToEnd();
-                UserSettings settings = JsonConvert.DeserializeObject<UserSettings>(settingsFileContents);
+                lblDfNotValid.Visible = false;
 
-                txtActivityMinutes.Text = settings.activityMinutes.ToTimeString();
-                txtActivitySeconds.Text = settings.activitySeconds.ToTimeString();
-                txtRestMinutes.Text = settings.restMinutes.ToTimeString();
-                txtRestSeconds.Text = settings.restSeconds.ToTimeString();
-                txtLongRestMinutes.Text = settings.longRestMinutes.ToTimeString();
-                txtLongRestSeconds.Text = settings.longRestSeconds.ToTimeString();
+                var settings = new UserSettings
+                {
+                    ActivityMinutes = activityMinutes,
+                    ActivitySeconds = activitySeconds,
+                    RestMinutes = restMinutes,
+                    RestSeconds = restSeconds,
+                    LongRestMinutes = longRestMinutes,
+                    LongRestSeconds = longRestSeconds,
+                    Cycles = cycles
+                };
+
+                var settingsJson = JsonConvert.SerializeObject(settings);
+
+                File.WriteAllText(USER_SETTINGS, settingsJson);
+
+                txtActivityMinutes.Text = txtDfActivityMinutes.Text;
+                txtActivitySeconds.Text = txtDfActivitySeconds.Text;
+                txtRestMinutes.Text = txtDfRestMinutes.Text;
+                txtRestSeconds.Text = txtDfRestSeconds.Text;
+                txtLongRestMinutes.Text = txtDfLongRestMinutes.Text;
+                txtLongRestSeconds.Text = txtDfLongRestSeconds.Text;
                 txtCurrentCycle.Text = 1.ToString();
-                txtCycles.Text = settings.cycles.ToString();
-            }
+                txtCycles.Text = txtDfCycles.Text;
 
-            tabMain.SelectedTab = tabTimer;
+                tabMain.SelectedTab = tabTimer;
+            }
+            else
+            {
+                lblDfNotValid.Visible = true;
+            }
         }
     }
 }

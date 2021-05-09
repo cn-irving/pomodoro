@@ -1,9 +1,1 @@
-{
-	"activityMinutes": "20",
-	"activitySeconds": "0",
-	"restMinutes": "3",
-	"restSeconds": "20",
-	"longRestMinutes": "10",
-	"longRestSeconds": "0",
-	"cycles": "4"
-}
+{"ActivityMinutes":20,"ActivitySeconds":0,"RestMinutes":3,"RestSeconds":20,"LongRestMinutes":10,"LongRestSeconds":0,"Cycles":4}

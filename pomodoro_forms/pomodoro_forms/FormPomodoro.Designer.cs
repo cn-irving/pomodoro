@@ -70,7 +70,7 @@ namespace pomodoro_forms
             this.lblDfActivity = new System.Windows.Forms.Label();
             this.lblDfActivityColon = new System.Windows.Forms.Label();
             this.lblDfRestColon = new System.Windows.Forms.Label();
-            this.btnSave = new System.Windows.Forms.Button();
+            this.lblDfNotValid = new System.Windows.Forms.Label();
             this.tabTimer.SuspendLayout();
             this.tabMain.SuspendLayout();
             this.tabDefaults.SuspendLayout();
@@ -111,7 +111,7 @@ namespace pomodoro_forms
             this.tabTimer.Location = new System.Drawing.Point(4, 22);
             this.tabTimer.Name = "tabTimer";
             this.tabTimer.Padding = new System.Windows.Forms.Padding(3);
-            this.tabTimer.Size = new System.Drawing.Size(378, 285);
+            this.tabTimer.Size = new System.Drawing.Size(343, 262);
             this.tabTimer.TabIndex = 0;
             this.tabTimer.Text = "Timer";
             this.tabTimer.UseVisualStyleBackColor = true;
@@ -119,9 +119,9 @@ namespace pomodoro_forms
             // btnLongRestStart
             // 
             this.btnLongRestStart.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLongRestStart.Location = new System.Drawing.Point(240, 148);
+            this.btnLongRestStart.Location = new System.Drawing.Point(209, 127);
             this.btnLongRestStart.Name = "btnLongRestStart";
-            this.btnLongRestStart.Size = new System.Drawing.Size(107, 35);
+            this.btnLongRestStart.Size = new System.Drawing.Size(107, 36);
             this.btnLongRestStart.TabIndex = 19;
             this.btnLongRestStart.Text = "Start";
             this.btnLongRestStart.UseVisualStyleBackColor = true;
@@ -131,17 +131,17 @@ namespace pomodoro_forms
             // 
             this.lblLongRest.AutoSize = true;
             this.lblLongRest.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblLongRest.Location = new System.Drawing.Point(19, 153);
+            this.lblLongRest.Location = new System.Drawing.Point(42, 133);
             this.lblLongRest.Name = "lblLongRest";
-            this.lblLongRest.Size = new System.Drawing.Size(88, 24);
+            this.lblLongRest.Size = new System.Drawing.Size(34, 24);
             this.lblLongRest.TabIndex = 21;
-            this.lblLongRest.Text = "Long rest";
+            this.lblLongRest.Text = "R+";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(165, 156);
+            this.label4.Location = new System.Drawing.Point(134, 136);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(13, 20);
             this.label4.TabIndex = 20;
@@ -151,7 +151,7 @@ namespace pomodoro_forms
             // 
             this.txtLongRestSeconds.AcceptsTab = true;
             this.txtLongRestSeconds.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtLongRestSeconds.Location = new System.Drawing.Point(184, 153);
+            this.txtLongRestSeconds.Location = new System.Drawing.Point(153, 133);
             this.txtLongRestSeconds.Name = "txtLongRestSeconds";
             this.txtLongRestSeconds.Size = new System.Drawing.Size(41, 26);
             this.txtLongRestSeconds.TabIndex = 18;
@@ -161,7 +161,7 @@ namespace pomodoro_forms
             // 
             this.txtLongRestMinutes.AcceptsTab = true;
             this.txtLongRestMinutes.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtLongRestMinutes.Location = new System.Drawing.Point(118, 153);
+            this.txtLongRestMinutes.Location = new System.Drawing.Point(87, 133);
             this.txtLongRestMinutes.Name = "txtLongRestMinutes";
             this.txtLongRestMinutes.Size = new System.Drawing.Size(41, 26);
             this.txtLongRestMinutes.TabIndex = 17;
@@ -171,7 +171,7 @@ namespace pomodoro_forms
             // 
             this.txtCycles.AcceptsTab = true;
             this.txtCycles.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCycles.Location = new System.Drawing.Point(184, 210);
+            this.txtCycles.Location = new System.Drawing.Point(153, 190);
             this.txtCycles.Name = "txtCycles";
             this.txtCycles.Size = new System.Drawing.Size(41, 26);
             this.txtCycles.TabIndex = 14;
@@ -181,7 +181,7 @@ namespace pomodoro_forms
             // 
             this.txtCurrentCycle.AcceptsTab = true;
             this.txtCurrentCycle.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCurrentCycle.Location = new System.Drawing.Point(118, 210);
+            this.txtCurrentCycle.Location = new System.Drawing.Point(87, 190);
             this.txtCurrentCycle.Name = "txtCurrentCycle";
             this.txtCurrentCycle.Size = new System.Drawing.Size(41, 26);
             this.txtCurrentCycle.TabIndex = 13;
@@ -191,7 +191,7 @@ namespace pomodoro_forms
             // 
             this.txtActivityMinutes.AcceptsTab = true;
             this.txtActivityMinutes.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtActivityMinutes.Location = new System.Drawing.Point(118, 50);
+            this.txtActivityMinutes.Location = new System.Drawing.Point(87, 30);
             this.txtActivityMinutes.Name = "txtActivityMinutes";
             this.txtActivityMinutes.Size = new System.Drawing.Size(41, 26);
             this.txtActivityMinutes.TabIndex = 0;
@@ -202,7 +202,7 @@ namespace pomodoro_forms
             // 
             this.txtActivitySeconds.AcceptsTab = true;
             this.txtActivitySeconds.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtActivitySeconds.Location = new System.Drawing.Point(184, 50);
+            this.txtActivitySeconds.Location = new System.Drawing.Point(153, 30);
             this.txtActivitySeconds.Name = "txtActivitySeconds";
             this.txtActivitySeconds.Size = new System.Drawing.Size(41, 26);
             this.txtActivitySeconds.TabIndex = 1;
@@ -213,7 +213,7 @@ namespace pomodoro_forms
             // 
             this.txtRestSeconds.AcceptsTab = true;
             this.txtRestSeconds.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtRestSeconds.Location = new System.Drawing.Point(184, 112);
+            this.txtRestSeconds.Location = new System.Drawing.Point(153, 92);
             this.txtRestSeconds.Name = "txtRestSeconds";
             this.txtRestSeconds.Size = new System.Drawing.Size(41, 26);
             this.txtRestSeconds.TabIndex = 4;
@@ -223,7 +223,7 @@ namespace pomodoro_forms
             // 
             this.txtRestMinutes.AcceptsTab = true;
             this.txtRestMinutes.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtRestMinutes.Location = new System.Drawing.Point(118, 112);
+            this.txtRestMinutes.Location = new System.Drawing.Point(87, 92);
             this.txtRestMinutes.Name = "txtRestMinutes";
             this.txtRestMinutes.Size = new System.Drawing.Size(41, 26);
             this.txtRestMinutes.TabIndex = 3;
@@ -233,17 +233,17 @@ namespace pomodoro_forms
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(50, 210);
+            this.label2.Location = new System.Drawing.Point(53, 190);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(57, 24);
+            this.label2.Size = new System.Drawing.Size(23, 24);
             this.label2.TabIndex = 16;
-            this.label2.Text = "Cycle";
+            this.label2.Text = "C";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(165, 213);
+            this.label1.Location = new System.Drawing.Point(134, 193);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(13, 20);
             this.label1.TabIndex = 15;
@@ -252,9 +252,9 @@ namespace pomodoro_forms
             // btnActivityStart
             // 
             this.btnActivityStart.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnActivityStart.Location = new System.Drawing.Point(240, 45);
+            this.btnActivityStart.Location = new System.Drawing.Point(209, 24);
             this.btnActivityStart.Name = "btnActivityStart";
-            this.btnActivityStart.Size = new System.Drawing.Size(107, 35);
+            this.btnActivityStart.Size = new System.Drawing.Size(107, 36);
             this.btnActivityStart.TabIndex = 2;
             this.btnActivityStart.Text = "Start";
             this.btnActivityStart.UseVisualStyleBackColor = true;
@@ -263,9 +263,9 @@ namespace pomodoro_forms
             // btnRestStart
             // 
             this.btnRestStart.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRestStart.Location = new System.Drawing.Point(240, 107);
+            this.btnRestStart.Location = new System.Drawing.Point(209, 86);
             this.btnRestStart.Name = "btnRestStart";
-            this.btnRestStart.Size = new System.Drawing.Size(107, 35);
+            this.btnRestStart.Size = new System.Drawing.Size(107, 36);
             this.btnRestStart.TabIndex = 5;
             this.btnRestStart.Text = "Start";
             this.btnRestStart.UseVisualStyleBackColor = true;
@@ -275,27 +275,27 @@ namespace pomodoro_forms
             // 
             this.lblRest.AutoSize = true;
             this.lblRest.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblRest.Location = new System.Drawing.Point(60, 111);
+            this.lblRest.Location = new System.Drawing.Point(53, 92);
             this.lblRest.Name = "lblRest";
-            this.lblRest.Size = new System.Drawing.Size(47, 24);
+            this.lblRest.Size = new System.Drawing.Size(23, 24);
             this.lblRest.TabIndex = 12;
-            this.lblRest.Text = "Rest";
+            this.lblRest.Text = "R";
             // 
             // lblActivity
             // 
             this.lblActivity.AutoSize = true;
             this.lblActivity.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblActivity.Location = new System.Drawing.Point(40, 49);
+            this.lblActivity.Location = new System.Drawing.Point(53, 30);
             this.lblActivity.Name = "lblActivity";
-            this.lblActivity.Size = new System.Drawing.Size(67, 24);
+            this.lblActivity.Size = new System.Drawing.Size(23, 24);
             this.lblActivity.TabIndex = 11;
-            this.lblActivity.Text = "Activity";
+            this.lblActivity.Text = "A";
             // 
             // lblActivityColon
             // 
             this.lblActivityColon.AutoSize = true;
             this.lblActivityColon.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblActivityColon.Location = new System.Drawing.Point(165, 53);
+            this.lblActivityColon.Location = new System.Drawing.Point(134, 33);
             this.lblActivityColon.Name = "lblActivityColon";
             this.lblActivityColon.Size = new System.Drawing.Size(13, 20);
             this.lblActivityColon.TabIndex = 6;
@@ -305,7 +305,7 @@ namespace pomodoro_forms
             // 
             this.lblRestColon.AutoSize = true;
             this.lblRestColon.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblRestColon.Location = new System.Drawing.Point(165, 115);
+            this.lblRestColon.Location = new System.Drawing.Point(134, 95);
             this.lblRestColon.Name = "lblRestColon";
             this.lblRestColon.Size = new System.Drawing.Size(13, 20);
             this.lblRestColon.TabIndex = 10;
@@ -316,7 +316,7 @@ namespace pomodoro_forms
             this.lblNotValid.AutoSize = true;
             this.lblNotValid.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNotValid.ForeColor = System.Drawing.Color.Maroon;
-            this.lblNotValid.Location = new System.Drawing.Point(146, 253);
+            this.lblNotValid.Location = new System.Drawing.Point(115, 233);
             this.lblNotValid.Name = "lblNotValid";
             this.lblNotValid.Size = new System.Drawing.Size(89, 16);
             this.lblNotValid.TabIndex = 7;
@@ -330,12 +330,12 @@ namespace pomodoro_forms
             this.tabMain.Location = new System.Drawing.Point(12, 12);
             this.tabMain.Name = "tabMain";
             this.tabMain.SelectedIndex = 0;
-            this.tabMain.Size = new System.Drawing.Size(386, 311);
+            this.tabMain.Size = new System.Drawing.Size(351, 288);
             this.tabMain.TabIndex = 14;
             // 
             // tabDefaults
             // 
-            this.tabDefaults.Controls.Add(this.btnSave);
+            this.tabDefaults.Controls.Add(this.lblDfNotValid);
             this.tabDefaults.Controls.Add(this.btnSet);
             this.tabDefaults.Controls.Add(this.lblDfLongRest);
             this.tabDefaults.Controls.Add(this.lblDfLongRestColon);
@@ -354,7 +354,7 @@ namespace pomodoro_forms
             this.tabDefaults.Location = new System.Drawing.Point(4, 22);
             this.tabDefaults.Name = "tabDefaults";
             this.tabDefaults.Padding = new System.Windows.Forms.Padding(3);
-            this.tabDefaults.Size = new System.Drawing.Size(378, 285);
+            this.tabDefaults.Size = new System.Drawing.Size(343, 262);
             this.tabDefaults.TabIndex = 1;
             this.tabDefaults.Text = "Defaults";
             this.tabDefaults.UseVisualStyleBackColor = true;
@@ -362,9 +362,9 @@ namespace pomodoro_forms
             // btnSet
             // 
             this.btnSet.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSet.Location = new System.Drawing.Point(248, 49);
+            this.btnSet.Location = new System.Drawing.Point(209, 24);
             this.btnSet.Name = "btnSet";
-            this.btnSet.Size = new System.Drawing.Size(107, 130);
+            this.btnSet.Size = new System.Drawing.Size(107, 198);
             this.btnSet.TabIndex = 41;
             this.btnSet.Text = "Set";
             this.btnSet.UseVisualStyleBackColor = true;
@@ -374,17 +374,17 @@ namespace pomodoro_forms
             // 
             this.lblDfLongRest.AutoSize = true;
             this.lblDfLongRest.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDfLongRest.Location = new System.Drawing.Point(19, 153);
+            this.lblDfLongRest.Location = new System.Drawing.Point(42, 133);
             this.lblDfLongRest.Name = "lblDfLongRest";
-            this.lblDfLongRest.Size = new System.Drawing.Size(88, 24);
+            this.lblDfLongRest.Size = new System.Drawing.Size(34, 24);
             this.lblDfLongRest.TabIndex = 40;
-            this.lblDfLongRest.Text = "Long rest";
+            this.lblDfLongRest.Text = "R+";
             // 
             // lblDfLongRestColon
             // 
             this.lblDfLongRestColon.AutoSize = true;
             this.lblDfLongRestColon.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDfLongRestColon.Location = new System.Drawing.Point(165, 156);
+            this.lblDfLongRestColon.Location = new System.Drawing.Point(134, 136);
             this.lblDfLongRestColon.Name = "lblDfLongRestColon";
             this.lblDfLongRestColon.Size = new System.Drawing.Size(13, 20);
             this.lblDfLongRestColon.TabIndex = 39;
@@ -394,7 +394,7 @@ namespace pomodoro_forms
             // 
             this.txtDfLongRestSeconds.AcceptsTab = true;
             this.txtDfLongRestSeconds.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDfLongRestSeconds.Location = new System.Drawing.Point(184, 153);
+            this.txtDfLongRestSeconds.Location = new System.Drawing.Point(153, 133);
             this.txtDfLongRestSeconds.Name = "txtDfLongRestSeconds";
             this.txtDfLongRestSeconds.Size = new System.Drawing.Size(41, 26);
             this.txtDfLongRestSeconds.TabIndex = 37;
@@ -404,7 +404,7 @@ namespace pomodoro_forms
             // 
             this.txtDfLongRestMinutes.AcceptsTab = true;
             this.txtDfLongRestMinutes.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDfLongRestMinutes.Location = new System.Drawing.Point(118, 153);
+            this.txtDfLongRestMinutes.Location = new System.Drawing.Point(87, 133);
             this.txtDfLongRestMinutes.Name = "txtDfLongRestMinutes";
             this.txtDfLongRestMinutes.Size = new System.Drawing.Size(41, 26);
             this.txtDfLongRestMinutes.TabIndex = 36;
@@ -414,7 +414,7 @@ namespace pomodoro_forms
             // 
             this.txtDfCycles.AcceptsTab = true;
             this.txtDfCycles.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDfCycles.Location = new System.Drawing.Point(118, 210);
+            this.txtDfCycles.Location = new System.Drawing.Point(87, 190);
             this.txtDfCycles.Name = "txtDfCycles";
             this.txtDfCycles.Size = new System.Drawing.Size(41, 26);
             this.txtDfCycles.TabIndex = 32;
@@ -424,7 +424,7 @@ namespace pomodoro_forms
             // 
             this.txtDfActivityMinutes.AcceptsTab = true;
             this.txtDfActivityMinutes.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDfActivityMinutes.Location = new System.Drawing.Point(118, 50);
+            this.txtDfActivityMinutes.Location = new System.Drawing.Point(87, 30);
             this.txtDfActivityMinutes.Name = "txtDfActivityMinutes";
             this.txtDfActivityMinutes.Size = new System.Drawing.Size(41, 26);
             this.txtDfActivityMinutes.TabIndex = 22;
@@ -434,7 +434,7 @@ namespace pomodoro_forms
             // 
             this.txtDfActivitySeconds.AcceptsTab = true;
             this.txtDfActivitySeconds.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDfActivitySeconds.Location = new System.Drawing.Point(184, 50);
+            this.txtDfActivitySeconds.Location = new System.Drawing.Point(153, 30);
             this.txtDfActivitySeconds.Name = "txtDfActivitySeconds";
             this.txtDfActivitySeconds.Size = new System.Drawing.Size(41, 26);
             this.txtDfActivitySeconds.TabIndex = 23;
@@ -444,7 +444,7 @@ namespace pomodoro_forms
             // 
             this.txtDfRestSeconds.AcceptsTab = true;
             this.txtDfRestSeconds.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDfRestSeconds.Location = new System.Drawing.Point(184, 112);
+            this.txtDfRestSeconds.Location = new System.Drawing.Point(153, 92);
             this.txtDfRestSeconds.Name = "txtDfRestSeconds";
             this.txtDfRestSeconds.Size = new System.Drawing.Size(41, 26);
             this.txtDfRestSeconds.TabIndex = 26;
@@ -454,7 +454,7 @@ namespace pomodoro_forms
             // 
             this.txtDfRestMinutes.AcceptsTab = true;
             this.txtDfRestMinutes.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDfRestMinutes.Location = new System.Drawing.Point(118, 112);
+            this.txtDfRestMinutes.Location = new System.Drawing.Point(87, 92);
             this.txtDfRestMinutes.Name = "txtDfRestMinutes";
             this.txtDfRestMinutes.Size = new System.Drawing.Size(41, 26);
             this.txtDfRestMinutes.TabIndex = 25;
@@ -464,37 +464,37 @@ namespace pomodoro_forms
             // 
             this.lblDfCycles.AutoSize = true;
             this.lblDfCycles.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDfCycles.Location = new System.Drawing.Point(41, 210);
+            this.lblDfCycles.Location = new System.Drawing.Point(53, 190);
             this.lblDfCycles.Name = "lblDfCycles";
-            this.lblDfCycles.Size = new System.Drawing.Size(66, 24);
+            this.lblDfCycles.Size = new System.Drawing.Size(23, 24);
             this.lblDfCycles.TabIndex = 35;
-            this.lblDfCycles.Text = "Cycles";
+            this.lblDfCycles.Text = "C";
             // 
             // lblDfRest
             // 
             this.lblDfRest.AutoSize = true;
             this.lblDfRest.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDfRest.Location = new System.Drawing.Point(60, 111);
+            this.lblDfRest.Location = new System.Drawing.Point(53, 92);
             this.lblDfRest.Name = "lblDfRest";
-            this.lblDfRest.Size = new System.Drawing.Size(47, 24);
+            this.lblDfRest.Size = new System.Drawing.Size(23, 24);
             this.lblDfRest.TabIndex = 31;
-            this.lblDfRest.Text = "Rest";
+            this.lblDfRest.Text = "R";
             // 
             // lblDfActivity
             // 
             this.lblDfActivity.AutoSize = true;
             this.lblDfActivity.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDfActivity.Location = new System.Drawing.Point(40, 49);
+            this.lblDfActivity.Location = new System.Drawing.Point(53, 30);
             this.lblDfActivity.Name = "lblDfActivity";
-            this.lblDfActivity.Size = new System.Drawing.Size(67, 24);
+            this.lblDfActivity.Size = new System.Drawing.Size(23, 24);
             this.lblDfActivity.TabIndex = 30;
-            this.lblDfActivity.Text = "Activity";
+            this.lblDfActivity.Text = "A";
             // 
             // lblDfActivityColon
             // 
             this.lblDfActivityColon.AutoSize = true;
             this.lblDfActivityColon.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDfActivityColon.Location = new System.Drawing.Point(165, 53);
+            this.lblDfActivityColon.Location = new System.Drawing.Point(134, 33);
             this.lblDfActivityColon.Name = "lblDfActivityColon";
             this.lblDfActivityColon.Size = new System.Drawing.Size(13, 20);
             this.lblDfActivityColon.TabIndex = 28;
@@ -504,27 +504,29 @@ namespace pomodoro_forms
             // 
             this.lblDfRestColon.AutoSize = true;
             this.lblDfRestColon.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDfRestColon.Location = new System.Drawing.Point(165, 115);
+            this.lblDfRestColon.Location = new System.Drawing.Point(134, 95);
             this.lblDfRestColon.Name = "lblDfRestColon";
             this.lblDfRestColon.Size = new System.Drawing.Size(13, 20);
             this.lblDfRestColon.TabIndex = 29;
             this.lblDfRestColon.Text = ":";
             // 
-            // btnSave
+            // lblDfNotValid
             // 
-            this.btnSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSave.Location = new System.Drawing.Point(248, 205);
-            this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(107, 35);
-            this.btnSave.TabIndex = 42;
-            this.btnSave.Text = "Save";
-            this.btnSave.UseVisualStyleBackColor = true;
+            this.lblDfNotValid.AutoSize = true;
+            this.lblDfNotValid.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDfNotValid.ForeColor = System.Drawing.Color.Maroon;
+            this.lblDfNotValid.Location = new System.Drawing.Point(115, 233);
+            this.lblDfNotValid.Name = "lblDfNotValid";
+            this.lblDfNotValid.Size = new System.Drawing.Size(89, 16);
+            this.lblDfNotValid.TabIndex = 43;
+            this.lblDfNotValid.Text = "Input not valid";
+            this.lblDfNotValid.Visible = false;
             // 
             // FormPomodoro
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(407, 334);
+            this.ClientSize = new System.Drawing.Size(371, 308);
             this.Controls.Add(this.tabMain);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormPomodoro";
@@ -580,7 +582,7 @@ namespace pomodoro_forms
         private System.Windows.Forms.Label lblDfActivityColon;
         private System.Windows.Forms.Label lblDfRestColon;
         private System.Windows.Forms.Button btnSet;
-        private System.Windows.Forms.Button btnSave;
+        private System.Windows.Forms.Label lblDfNotValid;
     }
 }
 
