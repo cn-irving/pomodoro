@@ -1,5 +1,4 @@
 ﻿using System;
-using System.IO;
 using System.Media;
 using System.Windows.Forms;
 using Timer = System.Windows.Forms.Timer;
@@ -17,10 +16,12 @@ namespace pomodoro_forms
         private DateTime? _startTime;
         private DateTime? _endTime;
         private string _finishMessage;
+        private string _chimeFileLocation;
 
-        public PomodoroTimer(string name, TextBox minutesTextBox, TextBox secondsTextBox, Button startButton, NotifyIcon notifyIcon, Label invalidLabel, string finishMessage, int defaultMinutes, int defaultSeconds)
+        public PomodoroTimer(string name, TextBox minutesTextBox, TextBox secondsTextBox, Button startButton, NotifyIcon notifyIcon, Label invalidLabel, string finishMessage, string chimeFileLocation, int defaultMinutes, int defaultSeconds)
         {
             _finishMessage = finishMessage;
+            _chimeFileLocation = chimeFileLocation;
             MinutesTextbox = minutesTextBox;
             SecondsTextbox = secondsTextBox;
             StartButton = startButton;
@@ -82,12 +83,8 @@ namespace pomodoro_forms
 
         public void Finish(EventArgs e)
         {
-            string workingDirectory = Environment.CurrentDirectory;
-            string projectDirectory = Directory.GetParent(workingDirectory).Parent.FullName;
-            var soundFileLocation = Path.Combine(projectDirectory, @"Content\Sounds\confirmation.wav");
-
-            var simpleSound = new SoundPlayer(soundFileLocation);
-            simpleSound.Play();
+            var chime = new SoundPlayer(_chimeFileLocation);
+            chime.Play();
             NotifyIcon.Visible = true;
             NotifyIcon.ShowBalloonTip(10000, $"{Name} timer finished", _finishMessage, ToolTipIcon.Info);
             Stop();

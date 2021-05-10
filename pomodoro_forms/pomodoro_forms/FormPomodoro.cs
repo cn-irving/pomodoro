@@ -9,7 +9,9 @@ namespace pomodoro_forms
 {
     public partial class FormPomodoro : Form
     {
-        private const string USER_SETTINGS = "..\\..\\userSettings.json";
+        private readonly string USER_SETTINGS_PATH = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "Pomodoro", "userSettings.json");
+        private readonly string ACTIVITY_END_CHIME = Path.Combine(Environment.CurrentDirectory, "Content\\Sounds", "activityEndChime.wav");
+        private readonly string REST_END_CHIME = Path.Combine(Environment.CurrentDirectory, "Content\\Sounds", "restEndChime.wav");
 
         private readonly int DEFAULT_ACTIVITY_MINUTES;
         private readonly int DEFAULT_ACTIVITY_SECONDS;
@@ -29,24 +31,43 @@ namespace pomodoro_forms
         {
             InitializeComponent();
 
-            using (StreamReader r = new StreamReader(USER_SETTINGS))
+            string settingsFileContents;
+            UserSettings settings;
+            try
             {
-                var settingsFileContents = r.ReadToEnd();
-                var settings = JsonConvert.DeserializeObject<UserSettings>(settingsFileContents);
-
-                DEFAULT_ACTIVITY_MINUTES = settings.ActivityMinutes;
-                DEFAULT_ACTIVITY_SECONDS = settings.ActivitySeconds;
-                DEFAULT_REST_MINUTES = settings.RestMinutes;
-                DEFAULT_REST_SECONDS = settings.RestSeconds;
-                DEFAULT_LONG_REST_MINUTES = settings.LongRestMinutes;
-                DEFAULT_LONG_REST_SECONDS = settings.LongRestSeconds;
-                DEFAULT_CYCLES = settings.Cycles;
+                using (StreamReader reader = new StreamReader(USER_SETTINGS_PATH))
+                {
+                    settingsFileContents = reader.ReadToEnd();
+                    settings = JsonConvert.DeserializeObject<UserSettings>(settingsFileContents);
+                }
+            }
+            catch
+            {
+                settings = new UserSettings
+                {
+                    ActivityMinutes = 20,
+                    ActivitySeconds = 0,
+                    RestMinutes = 2,
+                    RestSeconds = 30,
+                    LongRestMinutes = 7,
+                    LongRestSeconds = 30,
+                    Cycles = 3
+                };
             }
 
-            _activityTimer = new PomodoroTimer("Activity", txtActivityMinutes, txtActivitySeconds, btnActivityStart, nfyFinished, lblNotValid, "Take a break", DEFAULT_ACTIVITY_MINUTES, DEFAULT_ACTIVITY_SECONDS);
-            _restTimer = new PomodoroTimer("Rest", txtRestMinutes, txtRestSeconds, btnRestStart, nfyFinished, lblNotValid, "Back to it", DEFAULT_REST_MINUTES, DEFAULT_REST_SECONDS);
-            _longRestTimer = new PomodoroTimer("Long rest", txtLongRestMinutes, txtLongRestSeconds, btnLongRestStart, nfyFinished, lblNotValid, "Back to it", DEFAULT_LONG_REST_MINUTES, DEFAULT_LONG_REST_SECONDS);
-            _timers = new List<PomodoroTimer> { _activityTimer, _restTimer, _longRestTimer };
+            DEFAULT_ACTIVITY_MINUTES = settings.ActivityMinutes;
+            DEFAULT_ACTIVITY_SECONDS = settings.ActivitySeconds;
+            DEFAULT_REST_MINUTES = settings.RestMinutes;
+            DEFAULT_REST_SECONDS = settings.RestSeconds;
+            DEFAULT_LONG_REST_MINUTES = settings.LongRestMinutes;
+            DEFAULT_LONG_REST_SECONDS = settings.LongRestSeconds;
+            DEFAULT_CYCLES = settings.Cycles;
+
+            _activityTimer = new PomodoroTimer("Activity", txtActivityMinutes, txtActivitySeconds, btnActivityStart, nfyFinished, lblNotValid, "Take a break", ACTIVITY_END_CHIME, DEFAULT_ACTIVITY_MINUTES, DEFAULT_ACTIVITY_SECONDS);
+            _restTimer = new PomodoroTimer("Rest", txtRestMinutes, txtRestSeconds, btnRestStart, nfyFinished, lblNotValid, "Back to it", REST_END_CHIME, DEFAULT_REST_MINUTES, DEFAULT_REST_SECONDS);
+            _longRestTimer = new PomodoroTimer("Long rest", txtLongRestMinutes, txtLongRestSeconds, btnLongRestStart, nfyFinished, lblNotValid, "Back to it", REST_END_CHIME, DEFAULT_LONG_REST_MINUTES, DEFAULT_LONG_REST_SECONDS);
+            _timers = new List<PomodoroTimer> { _activityTimer, _restTimer, _longRestTimer
+};
 
             txtDfActivityMinutes.Text = DEFAULT_ACTIVITY_MINUTES.ToTimeString();
             txtDfActivitySeconds.Text = DEFAULT_ACTIVITY_SECONDS.ToTimeString();
@@ -306,7 +327,9 @@ namespace pomodoro_forms
 
                 var settingsJson = JsonConvert.SerializeObject(settings);
 
-                File.WriteAllText(USER_SETTINGS, settingsJson);
+                var file = new FileInfo(USER_SETTINGS_PATH);
+                file.Directory.Create();
+                File.WriteAllText(USER_SETTINGS_PATH, settingsJson);
 
                 txtActivityMinutes.Text = txtDfActivityMinutes.Text;
                 txtActivitySeconds.Text = txtDfActivitySeconds.Text;

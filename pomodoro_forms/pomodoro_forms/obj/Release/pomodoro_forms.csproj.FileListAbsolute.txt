@@ -7,3 +7,17 @@ C:\Users\craig.irving\Documents\Craig\VS Projects\pomodoro_forms\pomodoro_forms\
 C:\Users\craig.irving\Documents\Craig\VS Projects\pomodoro_forms\pomodoro_forms\obj\Release\pomodoro_forms.csproj.CoreCompileInputs.cache
 C:\Users\craig.irving\Documents\Craig\VS Projects\pomodoro_forms\pomodoro_forms\obj\Release\pomodoro_forms.exe
 C:\Users\craig.irving\Documents\Craig\VS Projects\pomodoro_forms\pomodoro_forms\obj\Release\pomodoro_forms.pdb
+C:\Users\Craig\source\repos\pomodoro\pomodoro_forms\pomodoro_forms\bin\Release\pomodoro_forms.exe.config
+C:\Users\Craig\source\repos\pomodoro\pomodoro_forms\pomodoro_forms\bin\Release\pomodoro_forms.exe
+C:\Users\Craig\source\repos\pomodoro\pomodoro_forms\pomodoro_forms\bin\Release\pomodoro_forms.pdb
+C:\Users\Craig\source\repos\pomodoro\pomodoro_forms\pomodoro_forms\bin\Release\Newtonsoft.Json.dll
+C:\Users\Craig\source\repos\pomodoro\pomodoro_forms\pomodoro_forms\bin\Release\Newtonsoft.Json.xml
+C:\Users\Craig\source\repos\pomodoro\pomodoro_forms\pomodoro_forms\obj\Release\pomodoro_forms.csprojAssemblyReference.cache
+C:\Users\Craig\source\repos\pomodoro\pomodoro_forms\pomodoro_forms\obj\Release\pomodoro_forms.FormPomodoro.resources
+C:\Users\Craig\source\repos\pomodoro\pomodoro_forms\pomodoro_forms\obj\Release\pomodoro_forms.Properties.Resources.resources
+C:\Users\Craig\source\repos\pomodoro\pomodoro_forms\pomodoro_forms\obj\Release\pomodoro_forms.csproj.GenerateResource.cache
+C:\Users\Craig\source\repos\pomodoro\pomodoro_forms\pomodoro_forms\obj\Release\pomodoro_forms.csproj.CoreCompileInputs.cache
+C:\Users\Craig\source\repos\pomodoro\pomodoro_forms\pomodoro_forms\obj\Release\pomodoro_forms.csproj.CopyComplete
+C:\Users\Craig\source\repos\pomodoro\pomodoro_forms\pomodoro_forms\obj\Release\pomodoro_forms.exe
+C:\Users\Craig\source\repos\pomodoro\pomodoro_forms\pomodoro_forms\obj\Release\pomodoro_forms.pdb
+C:\Users\Craig\source\repos\pomodoro\pomodoro_forms\pomodoro_forms\bin\Release\userSettings.json
