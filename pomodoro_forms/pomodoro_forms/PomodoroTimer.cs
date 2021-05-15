@@ -13,6 +13,8 @@ namespace pomodoro_forms
     {
         int _startingMinutes;
         int _startingSeconds;
+        int _defaultMinutes;
+        int _defaultSeconds;
         private DateTime? _startTime;
         private DateTime? _endTime;
         private string _finishMessage;
@@ -28,7 +30,9 @@ namespace pomodoro_forms
             NotifyIcon = notifyIcon;
             InvalidLabel = invalidLabel;
 
-            SetValues(defaultMinutes, defaultSeconds);
+            _defaultMinutes = defaultMinutes;
+            _defaultSeconds = defaultSeconds;
+            SetValues(_startingMinutes, _startingSeconds);
 
             Name = name;
             Timer = new Timer { Interval = 1000 };
@@ -89,8 +93,8 @@ namespace pomodoro_forms
             NotifyIcon.ShowBalloonTip(10000, $"{Name} timer finished", _finishMessage, ToolTipIcon.Info);
             Stop();
 
-            MinutesTextbox.Text = _startingMinutes.ToTimeString();
-            SecondsTextbox.Text = _startingSeconds.ToTimeString();
+            MinutesTextbox.Text = _defaultMinutes.ToTimeString();
+            SecondsTextbox.Text = _defaultSeconds.ToTimeString();
 
             Finished.Invoke(this, e);
         }

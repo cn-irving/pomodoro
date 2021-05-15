@@ -55,6 +55,7 @@ namespace pomodoro_forms
             this.lblNotValid = new System.Windows.Forms.Label();
             this.tabMain = new System.Windows.Forms.TabControl();
             this.tabDefaults = new System.Windows.Forms.TabPage();
+            this.lblDfNotValid = new System.Windows.Forms.Label();
             this.btnSet = new System.Windows.Forms.Button();
             this.lblDfLongRest = new System.Windows.Forms.Label();
             this.lblDfLongRestColon = new System.Windows.Forms.Label();
@@ -70,7 +71,6 @@ namespace pomodoro_forms
             this.lblDfActivity = new System.Windows.Forms.Label();
             this.lblDfActivityColon = new System.Windows.Forms.Label();
             this.lblDfRestColon = new System.Windows.Forms.Label();
-            this.lblDfNotValid = new System.Windows.Forms.Label();
             this.tabTimer.SuspendLayout();
             this.tabMain.SuspendLayout();
             this.tabDefaults.SuspendLayout();
@@ -122,7 +122,7 @@ namespace pomodoro_forms
             this.btnLongRestStart.Location = new System.Drawing.Point(209, 127);
             this.btnLongRestStart.Name = "btnLongRestStart";
             this.btnLongRestStart.Size = new System.Drawing.Size(107, 36);
-            this.btnLongRestStart.TabIndex = 19;
+            this.btnLongRestStart.TabIndex = 10;
             this.btnLongRestStart.Text = "Start";
             this.btnLongRestStart.UseVisualStyleBackColor = true;
             this.btnLongRestStart.Click += new System.EventHandler(this.btnLongRestStart_Click);
@@ -154,7 +154,7 @@ namespace pomodoro_forms
             this.txtLongRestSeconds.Location = new System.Drawing.Point(153, 133);
             this.txtLongRestSeconds.Name = "txtLongRestSeconds";
             this.txtLongRestSeconds.Size = new System.Drawing.Size(41, 26);
-            this.txtLongRestSeconds.TabIndex = 18;
+            this.txtLongRestSeconds.TabIndex = 5;
             this.txtLongRestSeconds.Text = "00";
             // 
             // txtLongRestMinutes
@@ -164,7 +164,7 @@ namespace pomodoro_forms
             this.txtLongRestMinutes.Location = new System.Drawing.Point(87, 133);
             this.txtLongRestMinutes.Name = "txtLongRestMinutes";
             this.txtLongRestMinutes.Size = new System.Drawing.Size(41, 26);
-            this.txtLongRestMinutes.TabIndex = 17;
+            this.txtLongRestMinutes.TabIndex = 4;
             this.txtLongRestMinutes.Text = "00";
             // 
             // txtCycles
@@ -174,7 +174,7 @@ namespace pomodoro_forms
             this.txtCycles.Location = new System.Drawing.Point(153, 190);
             this.txtCycles.Name = "txtCycles";
             this.txtCycles.Size = new System.Drawing.Size(41, 26);
-            this.txtCycles.TabIndex = 14;
+            this.txtCycles.TabIndex = 7;
             this.txtCycles.Text = "0";
             // 
             // txtCurrentCycle
@@ -184,7 +184,7 @@ namespace pomodoro_forms
             this.txtCurrentCycle.Location = new System.Drawing.Point(87, 190);
             this.txtCurrentCycle.Name = "txtCurrentCycle";
             this.txtCurrentCycle.Size = new System.Drawing.Size(41, 26);
-            this.txtCurrentCycle.TabIndex = 13;
+            this.txtCurrentCycle.TabIndex = 6;
             this.txtCurrentCycle.Text = "0";
             // 
             // txtActivityMinutes
@@ -216,7 +216,7 @@ namespace pomodoro_forms
             this.txtRestSeconds.Location = new System.Drawing.Point(153, 92);
             this.txtRestSeconds.Name = "txtRestSeconds";
             this.txtRestSeconds.Size = new System.Drawing.Size(41, 26);
-            this.txtRestSeconds.TabIndex = 4;
+            this.txtRestSeconds.TabIndex = 3;
             this.txtRestSeconds.Text = "00";
             // 
             // txtRestMinutes
@@ -226,7 +226,7 @@ namespace pomodoro_forms
             this.txtRestMinutes.Location = new System.Drawing.Point(87, 92);
             this.txtRestMinutes.Name = "txtRestMinutes";
             this.txtRestMinutes.Size = new System.Drawing.Size(41, 26);
-            this.txtRestMinutes.TabIndex = 3;
+            this.txtRestMinutes.TabIndex = 2;
             this.txtRestMinutes.Text = "00";
             // 
             // label2
@@ -255,7 +255,7 @@ namespace pomodoro_forms
             this.btnActivityStart.Location = new System.Drawing.Point(209, 24);
             this.btnActivityStart.Name = "btnActivityStart";
             this.btnActivityStart.Size = new System.Drawing.Size(107, 36);
-            this.btnActivityStart.TabIndex = 2;
+            this.btnActivityStart.TabIndex = 8;
             this.btnActivityStart.Text = "Start";
             this.btnActivityStart.UseVisualStyleBackColor = true;
             this.btnActivityStart.Click += new System.EventHandler(this.btnActivityStart_Click);
@@ -266,7 +266,7 @@ namespace pomodoro_forms
             this.btnRestStart.Location = new System.Drawing.Point(209, 86);
             this.btnRestStart.Name = "btnRestStart";
             this.btnRestStart.Size = new System.Drawing.Size(107, 36);
-            this.btnRestStart.TabIndex = 5;
+            this.btnRestStart.TabIndex = 9;
             this.btnRestStart.Text = "Start";
             this.btnRestStart.UseVisualStyleBackColor = true;
             this.btnRestStart.Click += new System.EventHandler(this.btnRestStart_Click);
@@ -331,7 +331,7 @@ namespace pomodoro_forms
             this.tabMain.Name = "tabMain";
             this.tabMain.SelectedIndex = 0;
             this.tabMain.Size = new System.Drawing.Size(351, 288);
-            this.tabMain.TabIndex = 14;
+            this.tabMain.TabIndex = 12;
             // 
             // tabDefaults
             // 
@@ -359,13 +359,25 @@ namespace pomodoro_forms
             this.tabDefaults.Text = "Defaults";
             this.tabDefaults.UseVisualStyleBackColor = true;
             // 
+            // lblDfNotValid
+            // 
+            this.lblDfNotValid.AutoSize = true;
+            this.lblDfNotValid.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDfNotValid.ForeColor = System.Drawing.Color.Maroon;
+            this.lblDfNotValid.Location = new System.Drawing.Point(115, 233);
+            this.lblDfNotValid.Name = "lblDfNotValid";
+            this.lblDfNotValid.Size = new System.Drawing.Size(89, 16);
+            this.lblDfNotValid.TabIndex = 43;
+            this.lblDfNotValid.Text = "Input not valid";
+            this.lblDfNotValid.Visible = false;
+            // 
             // btnSet
             // 
             this.btnSet.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSet.Location = new System.Drawing.Point(209, 24);
             this.btnSet.Name = "btnSet";
             this.btnSet.Size = new System.Drawing.Size(107, 198);
-            this.btnSet.TabIndex = 41;
+            this.btnSet.TabIndex = 7;
             this.btnSet.Text = "Set";
             this.btnSet.UseVisualStyleBackColor = true;
             this.btnSet.Click += new System.EventHandler(this.btnSet_Click);
@@ -397,7 +409,7 @@ namespace pomodoro_forms
             this.txtDfLongRestSeconds.Location = new System.Drawing.Point(153, 133);
             this.txtDfLongRestSeconds.Name = "txtDfLongRestSeconds";
             this.txtDfLongRestSeconds.Size = new System.Drawing.Size(41, 26);
-            this.txtDfLongRestSeconds.TabIndex = 37;
+            this.txtDfLongRestSeconds.TabIndex = 5;
             this.txtDfLongRestSeconds.Text = "00";
             // 
             // txtDfLongRestMinutes
@@ -407,7 +419,7 @@ namespace pomodoro_forms
             this.txtDfLongRestMinutes.Location = new System.Drawing.Point(87, 133);
             this.txtDfLongRestMinutes.Name = "txtDfLongRestMinutes";
             this.txtDfLongRestMinutes.Size = new System.Drawing.Size(41, 26);
-            this.txtDfLongRestMinutes.TabIndex = 36;
+            this.txtDfLongRestMinutes.TabIndex = 4;
             this.txtDfLongRestMinutes.Text = "00";
             // 
             // txtDfCycles
@@ -417,7 +429,7 @@ namespace pomodoro_forms
             this.txtDfCycles.Location = new System.Drawing.Point(87, 190);
             this.txtDfCycles.Name = "txtDfCycles";
             this.txtDfCycles.Size = new System.Drawing.Size(41, 26);
-            this.txtDfCycles.TabIndex = 32;
+            this.txtDfCycles.TabIndex = 6;
             this.txtDfCycles.Text = "0";
             // 
             // txtDfActivityMinutes
@@ -427,7 +439,7 @@ namespace pomodoro_forms
             this.txtDfActivityMinutes.Location = new System.Drawing.Point(87, 30);
             this.txtDfActivityMinutes.Name = "txtDfActivityMinutes";
             this.txtDfActivityMinutes.Size = new System.Drawing.Size(41, 26);
-            this.txtDfActivityMinutes.TabIndex = 22;
+            this.txtDfActivityMinutes.TabIndex = 0;
             this.txtDfActivityMinutes.Text = "00";
             // 
             // txtDfActivitySeconds
@@ -437,7 +449,7 @@ namespace pomodoro_forms
             this.txtDfActivitySeconds.Location = new System.Drawing.Point(153, 30);
             this.txtDfActivitySeconds.Name = "txtDfActivitySeconds";
             this.txtDfActivitySeconds.Size = new System.Drawing.Size(41, 26);
-            this.txtDfActivitySeconds.TabIndex = 23;
+            this.txtDfActivitySeconds.TabIndex = 1;
             this.txtDfActivitySeconds.Text = "00";
             // 
             // txtDfRestSeconds
@@ -447,7 +459,7 @@ namespace pomodoro_forms
             this.txtDfRestSeconds.Location = new System.Drawing.Point(153, 92);
             this.txtDfRestSeconds.Name = "txtDfRestSeconds";
             this.txtDfRestSeconds.Size = new System.Drawing.Size(41, 26);
-            this.txtDfRestSeconds.TabIndex = 26;
+            this.txtDfRestSeconds.TabIndex = 3;
             this.txtDfRestSeconds.Text = "00";
             // 
             // txtDfRestMinutes
@@ -457,7 +469,7 @@ namespace pomodoro_forms
             this.txtDfRestMinutes.Location = new System.Drawing.Point(87, 92);
             this.txtDfRestMinutes.Name = "txtDfRestMinutes";
             this.txtDfRestMinutes.Size = new System.Drawing.Size(41, 26);
-            this.txtDfRestMinutes.TabIndex = 25;
+            this.txtDfRestMinutes.TabIndex = 2;
             this.txtDfRestMinutes.Text = "00";
             // 
             // lblDfCycles
@@ -509,18 +521,6 @@ namespace pomodoro_forms
             this.lblDfRestColon.Size = new System.Drawing.Size(13, 20);
             this.lblDfRestColon.TabIndex = 29;
             this.lblDfRestColon.Text = ":";
-            // 
-            // lblDfNotValid
-            // 
-            this.lblDfNotValid.AutoSize = true;
-            this.lblDfNotValid.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDfNotValid.ForeColor = System.Drawing.Color.Maroon;
-            this.lblDfNotValid.Location = new System.Drawing.Point(115, 233);
-            this.lblDfNotValid.Name = "lblDfNotValid";
-            this.lblDfNotValid.Size = new System.Drawing.Size(89, 16);
-            this.lblDfNotValid.TabIndex = 43;
-            this.lblDfNotValid.Text = "Input not valid";
-            this.lblDfNotValid.Visible = false;
             // 
             // FormPomodoro
             // 
