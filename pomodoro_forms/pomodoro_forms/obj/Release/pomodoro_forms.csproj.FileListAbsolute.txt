@@ -21,3 +21,5 @@ C:\Users\Craig\source\repos\pomodoro\pomodoro_forms\pomodoro_forms\obj\Release\p
 C:\Users\Craig\source\repos\pomodoro\pomodoro_forms\pomodoro_forms\obj\Release\pomodoro_forms.exe
 C:\Users\Craig\source\repos\pomodoro\pomodoro_forms\pomodoro_forms\obj\Release\pomodoro_forms.pdb
 C:\Users\Craig\source\repos\pomodoro\pomodoro_forms\pomodoro_forms\bin\Release\userSettings.json
+C:\Users\Craig\source\repos\pomodoro\pomodoro_forms\pomodoro_forms\bin\Release\Content\Sounds\activityEndChime.wav
+C:\Users\Craig\source\repos\pomodoro\pomodoro_forms\pomodoro_forms\bin\Release\Content\Sounds\restEndChime.wav
